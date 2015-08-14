@@ -18,12 +18,12 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 
 import java.awt.Color;
-import java.util.HashMap;
+//import java.util.HashMap;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.UIManager;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 
 import javax.swing.JTextPane;
 import javax.swing.border.BevelBorder;
@@ -35,22 +35,36 @@ public class Frame extends JFrame {
 	private JPanel contentPane;
 	private JTable table;
 	//Hashmap to store item, qty pair
-	static HashMap<String, Integer> map=new HashMap<String, Integer>();
-	
+	static HashTable products=new HashTable();//@s hashtable which will store product object
+	static LinkedList display=new LinkedList();
 	//add classes to contain item name, price and qty
 	
-	private void addtoTable(String item, int qty, int price, JTable table){
+	private void addtoTable(int key, JTable table){
 		//Add LinkedList code
-		
+		obj=products.get(key);
+		if(display.contains(obj){
+			obj.quantity+=1;
+			obj.total+=obj.price
+		}
+		else{
+			display.add(obj);
+		}
 	}
+	
+public class product{
+	//product class which stores item name, quantity, price per unit and total price
+	String name;
+	int quantity,price,total;
+}
 	// check and add item qty
 	// implement with classes and objects
 	
-	private void addUpdateQty(String item){
+/*	private void addUpdateQty(int key){
 		int qty_temp;
-		if (map.containsKey(item)){
-			qty_temp=(int) map.get(item);
-			qty_temp+=1;
+		if (products.containsKey(key)){
+			obj=products.get(key);
+			obj.quantity+=1;
+			obj.price+=1
 			map.put(item,qty_temp);
 			System.out.println(qty_temp);	//DEBUG
 		}
@@ -63,6 +77,7 @@ public class Frame extends JFrame {
 	}
 	/**
 	 * Launch the application.
+	 */
 	 */
 	public static void main(String[] args) {
 		
